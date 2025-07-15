@@ -12,6 +12,20 @@ This project demonstrates how race conditions can occur in multithreaded program
 
 ---
 
+## What is a Data Race?
+
+A **data race** happens when:
+
+* Two or more threads access the same memory location concurrently.
+* At least one of the accesses is a write.
+* There is no proper synchronization (e.g. no mutex or atomic protection).
+
+This causes **undefined behavior** — the program might produce incorrect results, crash, or behave differently each time it runs. Data races are subtle and often hard to reproduce, which makes them dangerous in concurrent systems.
+
+Proper synchronization using tools like `std::mutex`, `std::atomic`, or other concurrency primitives prevents data races.
+
+---
+
 ## Problem Description
 
 When multiple threads access and modify a shared variable without proper synchronization, **race conditions** may occur, leading to unpredictable or incorrect program behavior.
